@@ -15,7 +15,7 @@ class StockTreemap extends Component {
     };
 
     this.color = scaleLinear({
-      domain: [0, 12000],
+      domain: [0, 4000],
       range: ['#0373d9', '#00ff70'],
     });
   }
@@ -23,13 +23,12 @@ class StockTreemap extends Component {
   render() {
     const treemap = d3treemap()
       .size([this.props.width, this.props.height])
-      .padding(5)
       .tile(treemapBinary);
     const nodes = treemap(this.state.root).descendants();
 
     return (
       <svg height={this.props.height} width={this.props.width}>
-        {nodes.map((node, i) => {
+        {nodes.reverse().map((node, i) => {
           console.log(i, node.depth, node.data.name);
           return (
             <rect
@@ -37,7 +36,7 @@ class StockTreemap extends Component {
               y={node.y0}
               width={node.x1 - node.x0}
               height={node.y1 - node.y0}
-              fill={this.color(node.value)}
+              fill={node.children ? 'transparent' : this.color(node.value)}
               key={`node-${i}`}
               stroke={node.depth === 1 ? '#333333' : 'none'}
             />
