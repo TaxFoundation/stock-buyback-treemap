@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { hierarchy, treemap as d3treemap, treemapBinary } from 'd3-hierarchy';
-import { Group } from '@vx/group';
 import { scaleLinear } from '@vx/scale';
-import { interpolateHcl } from 'd3-interpolate';
+import Tooltip from './Tooltip';
 
 class StockTreemap extends Component {
   constructor(props) {
@@ -27,24 +26,36 @@ class StockTreemap extends Component {
     const nodes = treemap(this.state.root).descendants();
 
     return (
-      <svg
-        width="100%"
-        viewBox={`0 0 ${this.props.width} ${this.props.height}`}
-      >
-        {nodes.reverse().map((node, i) => {
-          return (
-            <rect
-              x={node.x0}
-              y={node.y0}
-              width={node.x1 - node.x0}
-              height={node.y1 - node.y0}
-              fill={node.children ? 'transparent' : this.color(node.value)}
-              key={`node-${i}`}
-              stroke={node.depth === 1 ? '#333333' : 'none'}
-            />
-          );
-        })}
-      </svg>
+      <Fragment>
+        <svg
+          width="100%"
+          viewBox={`0 0 ${this.props.width} ${this.props.height}`}
+        >
+          {nodes.reverse().map((node, i) => {
+            const tooltipProps =
+              node.depth === 1
+                ? {
+                    'data-tip': `${node.data.name}: ${node.data.billions}`,
+                    'data-for': 'treemap-tooltip',
+                  }
+                : null;
+
+            return node.depth > 0 ? (
+              <rect
+                x={node.x0}
+                y={node.y0}
+                width={node.x1 - node.x0}
+                height={node.y1 - node.y0}
+                fill={node.children ? 'transparent' : this.color(node.value)}
+                key={`node-${i}`}
+                stroke={node.depth === 1 ? '#333333' : 'none'}
+                {...tooltipProps}
+              />
+            ) : null;
+          })}
+        </svg>
+        <Tooltip id="treemap-tooltip" aria-haspopup="true" />
+      </Fragment>
     );
   }
 }
