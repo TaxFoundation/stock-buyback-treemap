@@ -4,41 +4,49 @@
       "name": "Public",
       "children": [{
           "name": "Defined Benefit",
+          "definition": "benefit",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Domestic Equity Exposure",
-                  "billions": 1135
+                  "billions": 1135,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 2530
+                  "billions": 2530,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 289
+              "billions": 289,
+              "group": "not-reported"
             }
           ]
         },
         {
           "name": "Defined Contribution",
+          "definition": "contribution",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Domestic Equity Exposure",
-                  "billions": 118
+                  "billions": 118,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 79
+                  "billions": 79,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 102
+              "billions": 102,
+              "group": "not-reported"
             }
           ]
         }
@@ -48,45 +56,54 @@
       "name": "Corporate",
       "children": [{
           "name": "Defined Benefit",
+          "definition": "benefit",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Domestic Equity Exposure",
-                  "billions": 187
+                  "billions": 187,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 536
+                  "billions": 536,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 1199
+              "billions": 1199,
+              "group": "not-reported"
             }
           ]
         },
         {
           "name": "Defined Contribution",
+          "definition": "contribution",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Other Domestic Equity Exposure",
-                  "billions": 343
+                  "billions": 343,
+                  "group": "domestic"
                 },
                 {
                   "name": "Sponsoring Company Stock",
-                  "billions": 206
+                  "billions": 206,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 78
+                  "billions": 78,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 1903
+              "billions": 1903,
+              "group": "not-reported"
             }
           ]
         }
@@ -96,41 +113,49 @@
       "name": "Union",
       "children": [{
           "name": "Defined Benefit",
+          "definition": "benefit",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Domestic Equity Exposure",
-                  "billions": 50
+                  "billions": 50,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 88
+                  "billions": 88,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 199
+              "billions": 199,
+              "group": "not-reported"
             }
           ]
         },
         {
           "name": "Defined Contribution",
+          "definition": "contribution",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Domestic Equity Exposure",
-                  "billions": 11
+                  "billions": 11,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 3
+                  "billions": 3,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 58
+              "billions": 58,
+              "group": "not-reported"
             }
           ]
         }
@@ -140,41 +165,49 @@
       "name": "Miscellaneous",
       "children": [{
           "name": "Defined Benefit",
+          "definition": "benefit",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Domestic Equity Exposure",
-                  "billions": 105
+                  "billions": 105,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 143
+                  "billions": 143,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 137
+              "billions": 137,
+              "group": "not-reported"
             }
           ]
         },
         {
           "name": "Defined Contribution",
+          "definition": "contribution",
           "children": [{
               "name": "Reported",
               "children": [{
                   "name": "Domestic Equity Exposure",
-                  "billions": 347
+                  "billions": 347,
+                  "group": "domestic"
                 },
                 {
                   "name": "Non-Domestic Equity Exposure",
-                  "billions": 259
+                  "billions": 259,
+                  "group": "non-domestic"
                 }
               ]
             },
             {
               "name": "Not Reported",
-              "billions": 223
+              "billions": 223,
+              "group": "not-reported"
             }
           ]
         }

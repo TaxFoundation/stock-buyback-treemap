@@ -4,7 +4,6 @@ import {
   treemap as d3treemap,
   treemapResquarify,
 } from 'd3-hierarchy';
-import { scaleLinear } from '@vx/scale';
 import Tooltip from './Tooltip';
 
 class StockTreemap extends Component {
@@ -12,15 +11,8 @@ class StockTreemap extends Component {
     super(props);
 
     this.state = {
-      root: hierarchy(this.props.data)
-        .sum(d => d.billions)
-        .sort((a, b) => b.value - a.value),
+      root: hierarchy(this.props.data).sum(d => d.billions),
     };
-
-    this.color = scaleLinear({
-      domain: [0, 4000],
-      range: ['#0373d9', '#00ff70'],
-    });
   }
 
   render() {
@@ -28,6 +20,22 @@ class StockTreemap extends Component {
       .size([this.props.width, this.props.height])
       .tile(treemapResquarify);
     const nodes = treemap(this.state.root).descendants();
+    const color = node => {
+      const definition = node.parent.data.definition
+        ? node.parent.data.definition
+        : node.parent.parent.data.definition;
+
+      switch (node.data.group) {
+        case 'domestic':
+          return definition === 'benefit' ? '#770000' : '#ee0000';
+        case 'non-domestic':
+          return definition === 'benefit' ? '#007700' : '#00ee00';
+        case 'not-reported':
+          return definition === 'benefit' ? '#aaaaaa' : '#bbbbbb';
+        default:
+          return '#0000ff';
+      }
+    };
 
     return (
       <Fragment>
@@ -50,7 +58,7 @@ class StockTreemap extends Component {
                 y={node.y0}
                 width={node.x1 - node.x0}
                 height={node.y1 - node.y0}
-                fill={node.children ? 'transparent' : this.color(node.value)}
+                fill={node.data.group ? color(node) : 'transparent'}
                 key={`node-${i}`}
                 stroke={node.depth === 1 ? '#333333' : 'none'}
                 {...tooltipProps}
