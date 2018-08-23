@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { hierarchy, treemap as d3treemap, treemapBinary } from 'd3-hierarchy';
+import {
+  hierarchy,
+  treemap as d3treemap,
+  treemapResquarify,
+} from 'd3-hierarchy';
 import { scaleLinear } from '@vx/scale';
 import Tooltip from './Tooltip';
 
@@ -22,7 +26,7 @@ class StockTreemap extends Component {
   render() {
     const treemap = d3treemap()
       .size([this.props.width, this.props.height])
-      .tile(treemapBinary);
+      .tile(treemapResquarify);
     const nodes = treemap(this.state.root).descendants();
 
     return (
@@ -35,7 +39,7 @@ class StockTreemap extends Component {
             const tooltipProps =
               node.depth === 1
                 ? {
-                    'data-tip': `${node.data.name}: ${node.data.billions}`,
+                    'data-tip': `${node.data.name}: ${node.value}`,
                     'data-for': 'treemap-tooltip',
                   }
                 : null;
