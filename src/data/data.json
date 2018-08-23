@@ -1,0 +1,205 @@
+{
+  "name": "Total Market Value of Top 1000 Retirement Funds",
+  "billions": 10326,
+  "children": [{
+      "name": "Public",
+      "billions": 4252,
+      "children": [{
+          "name": "Defined Benefit",
+          "billions": 3953,
+          "children": [{
+              "name": "Reported",
+              "billions": 3665,
+              "children": [{
+                  "name": "Domestic Equity Exposure",
+                  "billions": 1135
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 2530
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 289
+            }
+          ]
+        },
+        {
+          "name": "Defined Contribution",
+          "billions": 299,
+          "children": [{
+              "name": "Reported",
+              "billions": 197,
+              "children": [{
+                  "name": "Domestic Equity Exposure",
+                  "billions": 118
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 79
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 102
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Corporate",
+      "billions": 4452,
+      "children": [{
+          "name": "Defined Benefit",
+          "billions": 1922,
+          "children": [{
+              "name": "Reported",
+              "billions": 723,
+              "children": [{
+                  "name": "Domestic Equity Exposure",
+                  "billions": 187
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 536
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 1199
+            }
+          ]
+        },
+        {
+          "name": "Defined Contribution",
+          "billions": 2530,
+          "children": [{
+              "name": "Reported",
+              "billions": 628,
+              "children": [{
+                  "name": "Other Domestic Equity Exposure",
+                  "billions": 343
+                },
+                {
+                  "name": "Sponsoring Company Stock",
+                  "billions": 206
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 78
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 1903
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Union",
+      "billions": 409,
+      "children": [{
+          "name": "Defined Benefit",
+          "billions": 338,
+          "children": [{
+              "name": "Reported",
+              "billions": 139,
+              "children": [{
+                  "name": "Domestic Equity Exposure",
+                  "billions": 50
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 88
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 199
+            }
+          ]
+        },
+        {
+          "name": "Defined Contribution",
+          "billions": 72,
+          "children": [{
+              "name": "Reported",
+              "billions": 14,
+              "children": [{
+                  "name": "Domestic Equity Exposure",
+                  "billions": 11
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 3
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "billions": 1212,
+      "children": [{
+          "name": "Defined Benefit",
+          "billions": 385,
+          "children": [{
+              "name": "Reported",
+              "billions": 248,
+              "children": [{
+                  "name": "Domestic Equity Exposure",
+                  "billions": 105
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 143
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 137
+            }
+          ]
+        },
+        {
+          "name": "Defined Contribution",
+          "billions": 828,
+          "children": [{
+              "name": "Reported",
+              "billions": 605,
+              "children": [{
+                  "name": "Domestic Equity Exposure",
+                  "billions": 347
+                },
+                {
+                  "name": "Non-Domestic Equity Exposure",
+                  "billions": 259
+                }
+              ]
+            },
+            {
+              "name": "Not Reported",
+              "billions": 223
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
