@@ -27,9 +27,11 @@ class StockTreemap extends Component {
     const nodes = treemap(this.state.root).descendants();
 
     return (
-      <svg height={this.props.height} width={this.props.width}>
+      <svg
+        width="100%"
+        viewBox={`0 0 ${this.props.width} ${this.props.height}`}
+      >
         {nodes.reverse().map((node, i) => {
-          console.log(i, node.depth, node.data.name);
           return (
             <rect
               x={node.x0}
