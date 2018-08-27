@@ -6,6 +6,19 @@ import {
 } from 'd3-hierarchy';
 import Tooltip from './Tooltip';
 
+const dynamicPadding = node => {
+  let padding = 1;
+
+  switch (node.depth) {
+    case 0:
+      return 8;
+    case 1:
+      return 3;
+    default:
+      return 0;
+  }
+};
+
 class StockTreemap extends Component {
   constructor(props) {
     super(props);
@@ -18,8 +31,10 @@ class StockTreemap extends Component {
   render() {
     const treemap = d3treemap()
       .size([this.props.width, this.props.height])
-      .tile(treemapResquarify);
+      .tile(treemapResquarify)
+      .paddingInner(dynamicPadding);
     const nodes = treemap(this.state.root).descendants();
+
     const color = node => {
       const definition = node.parent.data.definition
         ? node.parent.data.definition
