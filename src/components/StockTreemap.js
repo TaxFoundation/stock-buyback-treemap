@@ -4,16 +4,29 @@ import {
   treemap as d3treemap,
   treemapResquarify,
 } from 'd3-hierarchy';
+import { format } from 'd3-format';
 import Tooltip from './Tooltip';
 
-const dynamicPadding = node => {
+export const formatter = (number, type) => {
+  if (type === '%') {
+    return format('.1%')(number);
+  } else if (type === '$' && number % 1 > 0) {
+    return format('$,.2f')(number);
+  } else if (type === '$') {
+    return format('$,')(number);
+  } else if (type === ',') {
+    return format(',.0f')(number);
+  }
+};
+
+const dynamicInnerPadding = node => {
   switch (node.depth) {
     case 0:
       return 8;
     case 1:
       return 3;
     default:
-      return 0;
+      return 1;
   }
 };
 
@@ -21,12 +34,22 @@ const nodeLabel = node => {
   let nodeCopy = Object.assign({}, node);
   let label = nodeCopy.data.name;
 
-  while (nodeCopy.parent) {
+  while (nodeCopy.parent !== null) {
     nodeCopy = Object.assign({}, nodeCopy.parent);
-    label = `${nodeCopy.data.name}</br>${label}`;
+
+    switch (nodeCopy.depth) {
+      case 0:
+        break;
+      case 1:
+        label = `<h3>${nodeCopy.data.name} Funds</h3><p>${label}`;
+        break;
+      default:
+        label = `${nodeCopy.data.name}, ${label}`;
+        break;
+    }
   }
 
-  label = `<p>${label}</p>`;
+  label = `<div>${label}</p></div>`;
   return label;
 };
 
@@ -43,21 +66,17 @@ class StockTreemap extends Component {
     const treemap = d3treemap()
       .size([this.props.width, this.props.height])
       .tile(treemapResquarify)
-      .paddingInner(dynamicPadding);
+      .paddingInner(dynamicInnerPadding);
     const nodes = treemap(this.state.root).descendants();
 
     const color = node => {
-      const definition = node.parent.data.definition
-        ? node.parent.data.definition
-        : node.parent.parent.data.definition;
-
       switch (node.data.group) {
         case 'domestic':
-          return definition === 'benefit' ? '#770000' : '#ee0000';
+          return '#689f38';
         case 'non-domestic':
-          return definition === 'benefit' ? '#007700' : '#00ee00';
+          return '#00acc1';
         case 'not-reported':
-          return definition === 'benefit' ? '#aaaaaa' : '#bbbbbb';
+          return '#cfd8dc';
         default:
           return '#0000ff';
       }
@@ -73,7 +92,10 @@ class StockTreemap extends Component {
             const tooltipProps = node.children
               ? null
               : {
-                  'data-tip': `${nodeLabel(node)}<p>${node.value}</p>`,
+                  'data-tip': `${nodeLabel(node)}<p><strong>${formatter(
+                    node.value,
+                    '$'
+                  )} billion</strong></p>`,
                   'data-for': 'treemap-tooltip',
                   'data-html': true,
                 };
