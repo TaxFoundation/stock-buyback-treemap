@@ -7,8 +7,6 @@ import {
 import Tooltip from './Tooltip';
 
 const dynamicPadding = node => {
-  let padding = 1;
-
   switch (node.depth) {
     case 0:
       return 8;
@@ -17,6 +15,19 @@ const dynamicPadding = node => {
     default:
       return 0;
   }
+};
+
+const nodeLabel = node => {
+  let nodeCopy = Object.assign({}, node);
+  let label = nodeCopy.data.name;
+
+  while (nodeCopy.parent) {
+    nodeCopy = Object.assign({}, nodeCopy.parent);
+    label = `${nodeCopy.data.name}</br>${label}`;
+  }
+
+  label = `<p>${label}</p>`;
+  return label;
 };
 
 class StockTreemap extends Component {
@@ -58,14 +69,14 @@ class StockTreemap extends Component {
           width="100%"
           viewBox={`0 0 ${this.props.width} ${this.props.height}`}
         >
-          {nodes.reverse().map((node, i) => {
-            const tooltipProps =
-              node.depth === 1
-                ? {
-                    'data-tip': `${node.data.name}: ${node.value}`,
-                    'data-for': 'treemap-tooltip',
-                  }
-                : null;
+          {nodes.map((node, i) => {
+            const tooltipProps = node.children
+              ? null
+              : {
+                  'data-tip': `${nodeLabel(node)}<p>${node.value}</p>`,
+                  'data-for': 'treemap-tooltip',
+                  'data-html': true,
+                };
 
             return node.depth > 0 ? (
               <rect
@@ -75,7 +86,6 @@ class StockTreemap extends Component {
                 height={node.y1 - node.y0}
                 fill={node.data.group ? color(node) : 'transparent'}
                 key={`node-${i}`}
-                stroke={node.depth === 1 ? '#333333' : 'none'}
                 {...tooltipProps}
               />
             ) : null;
