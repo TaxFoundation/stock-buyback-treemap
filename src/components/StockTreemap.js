@@ -68,6 +68,7 @@ class StockTreemap extends Component {
       selectedGroup: null,
     };
   }
+
   onRectHover = group => {
     this.setState({ selectedGroup: group });
   };
@@ -79,17 +80,23 @@ class StockTreemap extends Component {
       .paddingInner(dynamicInnerPadding);
     const nodes = treemap(this.state.root).descendants();
 
-    const color = node => {
-      switch (node.data.group) {
-        case 'domestic':
-          return '#689f38';
-        case 'non-domestic':
-          return '#00acc1';
-        case 'not-reported':
-          return '#cfd8dc';
-        default:
-          return '#0000ff';
-      }
+    const color = (group, active) => {
+      const colors = {
+        domestic: {
+          active: '#689f38',
+          inactive: '#8bc34a',
+        },
+        'non-domestic': {
+          active: '#00acc1',
+          inactive: '#00bcd4',
+        },
+        'not-reported': {
+          active: '#cfd8dc',
+          inactive: '#eceff1',
+        },
+      };
+
+      return active ? colors[group].active : colors[group].inactive;
     };
 
     const rects = nodes.map((node, i) => {
@@ -112,9 +119,14 @@ class StockTreemap extends Component {
           y={node.y0}
           width={node.x1 - node.x0}
           height={node.y1 - node.y0}
-          fill={node.data.group ? color(node) : 'transparent'}
+          fill={
+            node.data.group
+              ? color(node.data.group, this.state.selectedGroup === group)
+              : 'transparent'
+          }
           key={`node-${i}`}
           onMouseEnter={() => this.onRectHover(group)}
+          onMouseLeave={() => this.onRectHover(null)}
           {...tooltipProps}
         />
       ) : null;
