@@ -49,14 +49,28 @@ const nodeLabel = node => {
   return label;
 };
 
+const getGroup = node => {
+  let nodeCopy = Object.assign({}, node);
+
+  while (nodeCopy.parent !== null && nodeCopy.parent.depth >= 1) {
+    nodeCopy = Object.assign({}, nodeCopy.parent);
+  }
+
+  return nodeCopy.data.name;
+};
+
 class StockTreemap extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       root: hierarchy(this.props.data).sum(d => d.billions),
+      selectedGroup: null,
     };
   }
+  onRectHover = group => {
+    this.setState({ selectedGroup: group });
+  };
 
   render() {
     const treemap = d3treemap()
@@ -78,36 +92,41 @@ class StockTreemap extends Component {
       }
     };
 
+    const rects = nodes.map((node, i) => {
+      const group = getGroup(node);
+
+      const tooltipProps = node.children
+        ? null
+        : {
+            'data-tip': `${nodeLabel(node)}<p><strong>${formatter(
+              node.value,
+              '$'
+            )} billion</strong></p>`,
+            'data-for': 'treemap-tooltip',
+            'data-html': true,
+          };
+
+      return node.depth > 0 ? (
+        <rect
+          x={node.x0}
+          y={node.y0}
+          width={node.x1 - node.x0}
+          height={node.y1 - node.y0}
+          fill={node.data.group ? color(node) : 'transparent'}
+          key={`node-${i}`}
+          onMouseEnter={() => this.onRectHover(group)}
+          {...tooltipProps}
+        />
+      ) : null;
+    });
+
     return (
       <Fragment>
         <svg
           width="100%"
           viewBox={`0 0 ${this.props.width} ${this.props.height}`}
         >
-          {nodes.map((node, i) => {
-            const tooltipProps = node.children
-              ? null
-              : {
-                  'data-tip': `${nodeLabel(node)}<p><strong>${formatter(
-                    node.value,
-                    '$'
-                  )} billion</strong></p>`,
-                  'data-for': 'treemap-tooltip',
-                  'data-html': true,
-                };
-
-            return node.depth > 0 ? (
-              <rect
-                x={node.x0}
-                y={node.y0}
-                width={node.x1 - node.x0}
-                height={node.y1 - node.y0}
-                fill={node.data.group ? color(node) : 'transparent'}
-                key={`node-${i}`}
-                {...tooltipProps}
-              />
-            ) : null;
-          })}
+          {rects}
         </svg>
         <Tooltip id="treemap-tooltip" aria-haspopup="true" />
       </Fragment>
