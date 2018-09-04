@@ -1,9 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {
-  hierarchy,
-  treemap as d3treemap,
-  treemapResquarify,
-} from 'd3-hierarchy';
+import { hierarchy, treemap as d3treemap, treemapBinary } from 'd3-hierarchy';
 import { format } from 'd3-format';
 import Tooltip from './Tooltip';
 
@@ -22,7 +18,7 @@ export const formatter = (number, type) => {
 const dynamicInnerPadding = node => {
   switch (node.depth) {
     case 0:
-      return 8;
+      return 12;
     case 1:
       return 3;
     default:
@@ -65,7 +61,7 @@ class StockTreemap extends Component {
   render() {
     const treemap = d3treemap()
       .size([this.props.width, this.props.height])
-      .tile(treemapResquarify)
+      .tile(treemapBinary)
       .paddingInner(dynamicInnerPadding);
     const nodes = treemap(this.state.root).descendants();
 
