@@ -83,16 +83,16 @@ class StockTreemap extends Component {
     const color = (group, active) => {
       const colors = {
         domestic: {
-          active: '#689f38',
-          inactive: '#8bc34a',
+          active: '#8bc34a',
+          inactive: '#c5e1a5',
         },
         'non-domestic': {
-          active: '#00acc1',
-          inactive: '#00bcd4',
+          active: '#00bcd4',
+          inactive: '#80deea',
         },
         'not-reported': {
-          active: '#cfd8dc',
-          inactive: '#eceff1',
+          active: '#eceff1',
+          inactive: '#fafafa',
         },
       };
 
@@ -113,23 +113,44 @@ class StockTreemap extends Component {
             'data-html': true,
           };
 
-      return node.depth > 0 ? (
-        <rect
-          x={node.x0}
-          y={node.y0}
-          width={node.x1 - node.x0}
-          height={node.y1 - node.y0}
-          fill={
-            node.data.group
-              ? color(node.data.group, this.state.selectedGroup === group)
-              : 'transparent'
-          }
-          key={`node-${i}`}
-          onMouseEnter={() => this.onRectHover(group)}
-          onMouseLeave={() => this.onRectHover(null)}
-          {...tooltipProps}
-        />
-      ) : null;
+      if (node.children === undefined) {
+        return (
+          <rect
+            x={node.x0}
+            y={node.y0}
+            width={node.x1 - node.x0}
+            height={node.y1 - node.y0}
+            fill={
+              node.data.group
+                ? color(node.data.group, this.state.selectedGroup === group)
+                : 'transparent'
+            }
+            key={`node-${i}`}
+            onMouseEnter={() => this.onRectHover(group)}
+            onMouseLeave={() => this.onRectHover(null)}
+            {...tooltipProps}
+          />
+        );
+      } else {
+        return null;
+      }
+    });
+
+    const texts = nodes.map(node => {
+      const group = getGroup(node);
+
+      if (node.depth === 1 && group !== this.state.selectedGroup) {
+        return (
+          <text
+            style={{ fontFamily: '"Lato", sans-serif' }}
+            textAnchor="middle"
+            x={node.x0 + (node.x1 - node.x0) / 2}
+            y={node.y0 + (node.y1 - node.y0) / 2}
+          >{`${node.data.name} Funds`}</text>
+        );
+      } else {
+        return null;
+      }
     });
 
     return (
@@ -139,6 +160,7 @@ class StockTreemap extends Component {
           viewBox={`0 0 ${this.props.width} ${this.props.height}`}
         >
           {rects}
+          {texts}
         </svg>
         <Tooltip id="treemap-tooltip" aria-haspopup="true" />
       </Fragment>
