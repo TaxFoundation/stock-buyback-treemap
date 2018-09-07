@@ -1,25 +1,26 @@
-﻿name,id,parent,billions
-Public Employee Funds,public,,
-Domestic Equities,domestic,public,1152.255113
-International Equities,international,public,789.7097804
-Fixed Income,fixed-income,public,942.8854773
-Cash,cash,public,71.23847954
-Other,other,public,1296.05319
-Corporate Employee Funds,corporate,,
-Domestic Equities,domestic,corporate,1577.159006
-International Equities,international,corporate,459.0271327
-Fixed Income,fixed-income,corporate,1171.201369
-Cash,cash,corporate,101.217703
-Other,other,corporate,1143.487059
-Union Employee Funds,union,,
-Domestic Equities,domestic,union,105.6789558
-International Equities,international,union,37.10270267
-Fixed Income,fixed-income,union,105.0302721
-Cash,cash,union,1.783498387
-Other,other,union,159.7974711
-Miscellaneous Employee Funds,misc,,
-Domestic Equities,domestic,misc,374.2424271
-International Equities,international,misc,99.00605472
-Fixed Income,fixed-income,misc,148.7976362
-Cash,cash,misc,255.3148155
-Other,other,misc,335.0596865
+﻿name,id,group,parent,billions
+Total Market Value of Top 1000 Retirement Funds,top,top,,
+Public Employee Funds,public,public,top,
+Domestic Equities,public-domestic,domestic,public,1152.255113
+International Equities,public-international,international,public,789.7097804
+Fixed Income,public-fixed-income,fixed-income,public,942.8854773
+Cash,public-cash,cash,public,71.23847954
+Other,public-other,other,public,1296.05319
+Corporate Employee Funds,corporate,corporate,top,
+Domestic Equities,corporate-domestic,domestic,corporate,1577.159006
+International Equities,corporate-international,international,corporate,459.0271327
+Fixed Income,corporate-fixed-income,fixed-income,corporate,1171.201369
+Cash,corporate-cash,cash,corporate,101.217703
+Other,corporate-other,other,corporate,1143.487059
+Union Employee Funds,union,union,top,
+Domestic Equities,union-domestic,domestic,union,105.6789558
+International Equities,union-international,international,union,37.10270267
+Fixed Income,union-fixed-income,fixed-income,union,105.0302721
+Cash,union-cash,cash,union,1.783498387
+Other,union-other,other,union,159.7974711
+Miscellaneous Employee Funds,misc,misc,top,
+Domestic Equities,misc-domestic,domestic,misc,374.2424271
+International Equities,misc-international,international,misc,99.00605472
+Fixed Income,misc-fixed-income,fixed-income,misc,148.7976362
+Cash,misc-cash,cash,misc,255.3148155
+Other,misc-other,other,misc,335.0596865
