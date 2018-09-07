@@ -17,13 +17,17 @@
     "styled-components": "^3.2.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "concurrently -c \"magenta,cyan\" --names \"Data,React\" \"npm run watch-data\" \"react-scripts start\"",
+    "build": "npm run build-data && react-scripts build",
+    "build-data": "node ./src/generateData.js",
+    "watch-data": "node ./src/generateData.js --watch",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "concurrently": "^4.0.1",
+    "d3-dsv": "^1.0.10",
     "eslint": "^4.10.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-react": "^1.1.7",

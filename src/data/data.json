@@ -1,217 +1,146 @@
-{
-  "name": "Total Market Value of Top 1000 Retirement Funds",
-  "children": [{
-      "name": "Public",
-      "children": [{
-          "name": "Defined Benefit",
-          "definition": "benefit",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Domestic Equity Exposure",
-                  "billions": 1135,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 2530,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 289,
-              "group": "not-reported"
-            }
-          ]
-        },
-        {
-          "name": "Defined Contribution",
-          "definition": "contribution",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Domestic Equity Exposure",
-                  "billions": 118,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 79,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 102,
-              "group": "not-reported"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Corporate",
-      "children": [{
-          "name": "Defined Benefit",
-          "definition": "benefit",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Domestic Equity Exposure",
-                  "billions": 187,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 536,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 1199,
-              "group": "not-reported"
-            }
-          ]
-        },
-        {
-          "name": "Defined Contribution",
-          "definition": "contribution",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Other Domestic Equity Exposure",
-                  "billions": 343,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Sponsoring Company Stock",
-                  "billions": 206,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 78,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 1903,
-              "group": "not-reported"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Union",
-      "children": [{
-          "name": "Defined Benefit",
-          "definition": "benefit",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Domestic Equity Exposure",
-                  "billions": 50,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 88,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 199,
-              "group": "not-reported"
-            }
-          ]
-        },
-        {
-          "name": "Defined Contribution",
-          "definition": "contribution",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Domestic Equity Exposure",
-                  "billions": 11,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 3,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 58,
-              "group": "not-reported"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Miscellaneous",
-      "children": [{
-          "name": "Defined Benefit",
-          "definition": "benefit",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Domestic Equity Exposure",
-                  "billions": 105,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 143,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 137,
-              "group": "not-reported"
-            }
-          ]
-        },
-        {
-          "name": "Defined Contribution",
-          "definition": "contribution",
-          "children": [{
-              "name": "Reported",
-              "children": [{
-                  "name": "Domestic Equity Exposure",
-                  "billions": 347,
-                  "group": "domestic"
-                },
-                {
-                  "name": "Non-Domestic Equity Exposure",
-                  "billions": 259,
-                  "group": "non-domestic"
-                }
-              ]
-            },
-            {
-              "name": "Not Reported",
-              "billions": 223,
-              "group": "not-reported"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "﻿name": "Public Employee Funds",
+    "id": "public",
+    "parent": "",
+    "billions": "4252.14204"
+  },
+  {
+    "﻿name": "Domestic Equities",
+    "id": "domestic",
+    "parent": "public",
+    "billions": "1152.255113"
+  },
+  {
+    "﻿name": "International Equities",
+    "id": "international",
+    "parent": "public",
+    "billions": "789.7097804"
+  },
+  {
+    "﻿name": "Fixed Income",
+    "id": "fixed-income",
+    "parent": "public",
+    "billions": "942.8854773"
+  },
+  {
+    "﻿name": "Cash",
+    "id": "cash",
+    "parent": "public",
+    "billions": "71.23847954"
+  },
+  {
+    "﻿name": "Other",
+    "id": "other",
+    "parent": "public",
+    "billions": "1296.05319"
+  },
+  {
+    "﻿name": "Corporate Employee Funds",
+    "id": "corporate",
+    "parent": "",
+    "billions": "4452.09227"
+  },
+  {
+    "﻿name": "Domestic Equities",
+    "id": "domestic",
+    "parent": "corporate",
+    "billions": "1577.159006"
+  },
+  {
+    "﻿name": "International Equities",
+    "id": "international",
+    "parent": "corporate",
+    "billions": "459.0271327"
+  },
+  {
+    "﻿name": "Fixed Income",
+    "id": "fixed-income",
+    "parent": "corporate",
+    "billions": "1171.201369"
+  },
+  {
+    "﻿name": "Cash",
+    "id": "cash",
+    "parent": "corporate",
+    "billions": "101.217703"
+  },
+  {
+    "﻿name": "Other",
+    "id": "other",
+    "parent": "corporate",
+    "billions": "1143.487059"
+  },
+  {
+    "﻿name": "Union Employee Funds",
+    "id": "union",
+    "parent": "",
+    "billions": "409.3929"
+  },
+  {
+    "﻿name": "Domestic Equities",
+    "id": "domestic",
+    "parent": "union",
+    "billions": "105.6789558"
+  },
+  {
+    "﻿name": "International Equities",
+    "id": "international",
+    "parent": "union",
+    "billions": "37.10270267"
+  },
+  {
+    "﻿name": "Fixed Income",
+    "id": "fixed-income",
+    "parent": "union",
+    "billions": "105.0302721"
+  },
+  {
+    "﻿name": "Cash",
+    "id": "cash",
+    "parent": "union",
+    "billions": "1.783498387"
+  },
+  {
+    "﻿name": "Other",
+    "id": "other",
+    "parent": "union",
+    "billions": "159.7974711"
+  },
+  {
+    "﻿name": "Miscellaneous Employee Funds",
+    "id": "misc",
+    "parent": "",
+    "billions": "1212.42062"
+  },
+  {
+    "﻿name": "Domestic Equities",
+    "id": "domestic",
+    "parent": "misc",
+    "billions": "374.2424271"
+  },
+  {
+    "﻿name": "International Equities",
+    "id": "international",
+    "parent": "misc",
+    "billions": "99.00605472"
+  },
+  {
+    "﻿name": "Fixed Income",
+    "id": "fixed-income",
+    "parent": "misc",
+    "billions": "148.7976362"
+  },
+  {
+    "﻿name": "Cash",
+    "id": "cash",
+    "parent": "misc",
+    "billions": "255.3148155"
+  },
+  {
+    "﻿name": "Other",
+    "id": "other",
+    "parent": "misc",
+    "billions": "335.0596865"
+  }
+]
