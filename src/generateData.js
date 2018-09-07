@@ -1,12 +1,13 @@
 const dsv = require('d3-dsv');
 const fs = require('fs');
+const stripBom = require('strip-bom');
 
 const input = './src/data/data.csv';
 const output = './src/data/data.json';
 
 const updateData = () => {
   try {
-    const doc = dsv.csvParse(fs.readFileSync(input, 'utf8'));
+    const doc = dsv.csvParse(stripBom(fs.readFileSync(input, 'utf8')));
     fs.writeFileSync(output, JSON.stringify(doc, null, 2));
     console.log('Update complete.');
   } catch (e) {

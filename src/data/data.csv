@@ -1,23 +1,23 @@
 ﻿name,id,parent,billions
-Public Employee Funds,public,,4252.14204
+Public Employee Funds,public,,
 Domestic Equities,domestic,public,1152.255113
 International Equities,international,public,789.7097804
 Fixed Income,fixed-income,public,942.8854773
 Cash,cash,public,71.23847954
 Other,other,public,1296.05319
-Corporate Employee Funds,corporate,,4452.09227
+Corporate Employee Funds,corporate,,
 Domestic Equities,domestic,corporate,1577.159006
 International Equities,international,corporate,459.0271327
 Fixed Income,fixed-income,corporate,1171.201369
 Cash,cash,corporate,101.217703
 Other,other,corporate,1143.487059
-Union Employee Funds,union,,409.3929
+Union Employee Funds,union,,
 Domestic Equities,domestic,union,105.6789558
 International Equities,international,union,37.10270267
 Fixed Income,fixed-income,union,105.0302721
 Cash,cash,union,1.783498387
 Other,other,union,159.7974711
-Miscellaneous Employee Funds,misc,,1212.42062
+Miscellaneous Employee Funds,misc,,
 Domestic Equities,domestic,misc,374.2424271
 International Equities,international,misc,99.00605472
 Fixed Income,fixed-income,misc,148.7976362
