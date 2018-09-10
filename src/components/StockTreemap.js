@@ -45,7 +45,13 @@ class StockTreemap extends Component {
 
     const texts = nodes.map((node, i) => {
       if (node.depth === 1) {
-        return <Text node={node} key={`text-${i}`} />;
+        return (
+          <Text
+            node={node}
+            key={`text-${i}`}
+            selected={this.state.selectedGroup === node.data.id}
+          />
+        );
       } else {
         return null;
       }
