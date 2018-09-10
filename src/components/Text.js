@@ -6,9 +6,13 @@ const Text = props => {
     return null;
   } else {
     const words = props.node.data.name.split(' ');
-    const tspans = words.map(word => {
+    const tspans = words.map((word, i) => {
       return (
-        <tspan x={props.node.x0 + (props.node.x1 - props.node.x0) / 2} dy={20}>
+        <tspan
+          key={`word-${i}`}
+          x={props.node.x0 + (props.node.x1 - props.node.x0) / 2}
+          dy={20}
+        >
           {word}
         </tspan>
       );
