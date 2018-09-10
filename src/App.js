@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { stratify, hierarchy } from 'd3-hierarchy';
+import { stratify } from 'd3-hierarchy';
 import StockTreemap from './components/StockTreemap';
 import data from './data/data.json';
 
@@ -9,9 +9,6 @@ const stratifiedData = stratify()
   .sum(d => d.billions);
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="App" style={{ margin: '1rem auto', maxWidth: '1024px' }}>
