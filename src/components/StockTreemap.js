@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { treemap as d3treemap, treemapBinary } from 'd3-hierarchy';
 import { format } from 'd3-format';
 import Tooltip from './Tooltip';
+import { color, padder, formatter } from '../helpers';
 
 export const formatter = (number, type) => {
   if (type === '%') {
