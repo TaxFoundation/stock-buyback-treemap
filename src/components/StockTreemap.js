@@ -4,6 +4,14 @@ import Tooltip from './Tooltip';
 import Text from './Text';
 import { color, padder, formatter } from '../helpers';
 
+const TooltipText = (group, type, amount) => {
+  return `
+    <h3>${group}</h3>
+    <p>${type}</p>
+    <p>${formatter(amount, '$')} Billion</p>
+  `;
+};
+
 class StockTreemap extends Component {
   constructor(props) {
     super(props);
@@ -36,6 +44,13 @@ class StockTreemap extends Component {
             fill={color(node.parent.id, node.data.group)}
             onMouseEnter={() => this.onRectHover(node.parent.data.id)}
             onMouseLeave={() => this.onRectHover(null)}
+            data-tip={TooltipText(
+              node.parent.data.name,
+              node.data.name,
+              node.value
+            )}
+            data-for="treemap-tooltip"
+            data-html={true}
           />
         );
       } else {
