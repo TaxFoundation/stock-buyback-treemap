@@ -8,7 +8,11 @@ const TooltipText = (group, type, amount) => {
   return `
     <h3>${group}</h3>
     <p>${type}</p>
-    <p>${formatter(amount, '$')} Billion</p>
+    <p>${
+      amount >= 1000
+        ? `$${Math.round(amount / 100) / 10} Trillion`
+        : `${formatter(Math.round(amount), '$')} Billion`
+    }</p>
   `;
 };
 
