@@ -33,10 +33,16 @@ const Legend = props => {
       return { name: node.data.name, id: node.data.group };
     })
     .sort((a, b) => {
-      if (a.id === 'domestic' || a.id < b.id) {
+      if (a.id === 'domestic') {
         return -1;
       }
-      if (a.id > b.id || b.id === 'domestic') {
+      if (b.id === 'domestic') {
+        return 1;
+      }
+      if (a.id < b.id) {
+        return -1;
+      }
+      if (a.id > b.id) {
         return 1;
       }
       return 0;
