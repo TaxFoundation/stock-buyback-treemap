@@ -8,17 +8,20 @@ const LegendContainer = styled.div`
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   grid-gap: 16px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
   margin-top: 20px;
   padding: 16px;
+
+  @media screen and (min-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const LegendKey = styled.div`
   align-items: stretch;
   display: grid;
+  grid-auto-rows: 60px;
   grid-template-columns: repeat(${props => props.cols}, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: 80px;
   height: 100%;
   justify-items: stretch;
 `;
