@@ -52,10 +52,26 @@ const Legend = props => {
     <LegendContainer>
       <div>
         <p>
-          <strong>Domestic equity</strong> includes real estate investment trusts and sponsoring company stock.<br />
-          <strong>International equity</strong> includes real estate investment trusts.<br />
-          <strong>Fixed income</strong> includes domestic, global, and international fixed income assets and stable value assets.<br />
-          <strong>Other</strong> includes global equity, private equity, equity real estate excluding real estate investment trusts, target date assets, annuities, and other alternatives.
+          <strong>Domestic equity</strong> includes real estate investment
+          trusts and sponsoring company stock.
+          <br />
+          <strong>International equity</strong> includes real estate investment
+          trusts.
+          <br />
+          <strong>Fixed income</strong> includes domestic, global, and
+          international fixed income assets and stable value assets.
+          <br />
+          <strong>Other</strong> includes global equity, private equity, equity
+          real estate excluding real estate investment trusts, target date
+          assets, annuities, and other alternatives.
+        </p>
+        <p>
+          Not every fund in the Pensions &amp; Investments survey reported how
+          they invested their assets. Within the survey, allocation was reported
+          for 72 percent of defined benefit (DB) assets and 39 percent of
+          defined contribution (DC) assets. To estimate the asset allocation of
+          non-reporting plans to create the interactive tool, we assumed they
+          had the same average as the plans that did report.
         </p>
       </div>
       <LegendKey cols={groups.length + 1}>
